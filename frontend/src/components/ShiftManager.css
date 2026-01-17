@@ -1,0 +1,205 @@
+/* Shift Manager Container */
+.shift-manager {
+  margin-top: 20px;
+  background: #f9fafe;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 0 12px rgba(0, 70, 140, 0.1);
+}
+
+/* Title */
+.shift-manager h2 {
+  color: #004080;
+  margin-bottom: 20px;
+}
+
+/* 🔍 Search */
+.search-input {
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  margin-bottom: 15px;
+  width: 100%;
+  max-width: 300px;
+}
+
+/* ➕ Form */
+.shift-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.shift-form input,
+.shift-form select {
+  flex: 1 1 180px;
+  padding: 10px;
+  border: 1px solid #bbb;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.shift-form button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.shift-form button:hover {
+  background-color: #0056b3;
+}
+
+/* 📋 Table */
+.shift-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+  background-color: #fff;
+}
+
+.shift-table th,
+.shift-table td {
+  border: 1px solid #ddd;
+  padding: 10px 12px;
+  text-align: left;
+}
+
+.shift-table th {
+  background-color: #004080;
+  color: #fff;
+}
+
+.shift-table td {
+  color: #333;
+}
+
+/* ✏️ Actions */
+.edit-btn,
+.delete-btn {
+  padding: 6px 10px;
+  font-size: 0.85rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-right: 5px;
+}
+
+.edit-btn {
+  background-color: #ffc107;
+  color: #333;
+}
+
+.edit-btn:hover {
+  background-color: #e0a800;
+}
+
+.delete-btn {
+  background-color: #dc3545;
+  color: #fff;
+}
+
+.delete-btn:hover {
+  background-color: #c82333;
+}
+
+/* 📤 Export buttons */
+.shift-exports {
+  display: flex;
+  gap: 10px;
+  margin: 15px 0;
+}
+
+.export-btn {
+  background-color: #28a745;
+  color: white;
+  padding: 8px 14px;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.export-btn:hover {
+  background-color: #1e7e34;
+}
+
+/* 🌙 Dark Mode */
+body[data-theme='dark'] .shift-manager {
+  background-color: #1e1e2f;
+  color: #f1f1f1;
+}
+
+body[data-theme='dark'] .shift-table {
+  background-color: #2c2c3e;
+}
+
+body[data-theme='dark'] .shift-table th {
+  background-color: #003366;
+}
+
+body[data-theme='dark'] .shift-table td {
+  color: #e8e8e8;
+}
+
+body[data-theme='dark'] .search-input,
+body[data-theme='dark'] .shift-form input,
+body[data-theme='dark'] .shift-form select {
+  background-color: #2c2c3e;
+  color: #fff;
+  border: 1px solid #555;
+}
+
+body[data-theme='dark'] .shift-form button,
+body[data-theme='dark'] .export-btn {
+  color: #fff;
+}
+
+/* ✅ Status cell (optional enhancement) */
+.shift-table td.status-badge {
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  padding: 4px 8px;
+  border-radius: 4px;
+  display: inline-block;
+}
+
+.shift-table td.status-badge.scheduled {
+  background-color: #007bff22;
+  color: #007bff;
+}
+
+.shift-table td.status-badge.completed {
+  background-color: #28a74522;
+  color: #28a745;
+}
+
+.shift-table td.status-badge.cancelled {
+  background-color: #dc354522;
+  color: #dc3545;
+}
+
+/* 📱 Responsive */
+@media (max-width: 768px) {
+  .shift-form {
+    flex-direction: column;
+  }
+
+  .shift-exports {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .shift-table th,
+  .shift-table td {
+    font-size: 0.85rem;
+    padding: 8px;
+  }
+}

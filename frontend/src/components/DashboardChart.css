@@ -1,0 +1,26 @@
+/* src/components/DashboardChart.css */
+.dashboard-chart {
+  padding: 20px;
+  border-radius: 12px;
+  background-color: #fff;
+  box-shadow: 0 4px 12px rgba(0, 64, 128, 0.1);
+}
+
+.chart-grid {
+  display: grid;
+  gap: 30px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.chart-box {
+  background-color: #f9f9f9;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.chart-box h4 {
+  margin-bottom: 12px;
+  font-size: 16px;
+  color: #004080;
+}

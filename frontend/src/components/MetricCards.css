@@ -1,0 +1,45 @@
+/* src/components/MetricCards.css */
+.metrics-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: space-between;
+}
+
+.metric-card {
+  background-color: #ffffff;
+  padding: 20px;
+  flex: 1 1 200px;
+  min-width: 200px;
+  text-align: center;
+  border-radius: 12px;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.05);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.metric-card h4 {
+  margin-bottom: 8px;
+  color: #004080;
+  font-size: 1.1rem;
+}
+
+.metric-card p {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #007bff;
+}
+
+/* 🌙 Dark Mode Overrides */
+body[data-theme='dark'] .metric-card {
+  background-color: #29293d;
+  color: #f1f1f1;
+  border: 1px solid #444;
+}
+
+body[data-theme='dark'] .metric-card h4 {
+  color: #80bdff;
+}
+
+body[data-theme='dark'] .metric-card p {
+  color: #7dc3ff;
+}

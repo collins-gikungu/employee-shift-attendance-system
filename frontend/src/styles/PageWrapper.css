@@ -1,0 +1,27 @@
+.page-wrapper {
+    padding: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+  
+  .page-wrapper h2 {
+    color: #004080;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  body[data-theme='dark'] .page-wrapper {
+    background-color: #1e1e2f;
+    color: #eee;
+  }
+  
+  body[data-theme='dark'] .page-wrapper h2 {
+    color: #80bdff;
+  }
+  

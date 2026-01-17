@@ -1,0 +1,141 @@
+/* Reset top margin/padding */
+body, html {
+  margin: 0;
+  padding: 0;
+}
+
+/* If there's a wrapper applied by SidebarLayout, reset its margin */
+.dashboard-layout, .dashboard-layout > div:first-child {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+/* 🌐 Base Layout */
+.dashboard-content {
+  padding: 30px; 
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  transition: background-color 0.3s ease;
+}
+
+/* 📊 Grid Layout for Sections */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 30px;
+}
+
+/* 🧠 Role Sections */
+.role-section {
+  padding: 25px;
+  border-radius: 12px;
+  background-color: #e8f1ff;
+  box-shadow: 0 4px 12px rgba(0, 64, 128, 0.1);
+  transition: transform 0.2s ease;
+}
+
+.role-section:hover {
+  transform: translateY(-2px);
+}
+
+.role-section h3 {
+  color: #004080;
+  margin-bottom: 15px;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.role-section ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.role-section ul li {
+  background-color: #ffffff;
+  padding: 12px 18px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  border-left: 4px solid #007bff;
+  color: #333;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  transition: background 0.3s ease;
+}
+
+.role-section ul li:hover {
+  background-color: #f0f8ff;
+}
+
+.role-section i {
+  margin-right: 10px;
+  color: #007bff;
+  width: 20px;
+  text-align: center;
+}
+
+/* 🌀 Component Cards */
+.dashboard-chart,
+.metric-cards,
+.shift-manager,
+.attendance-tracker,
+.payroll-viewer,
+.employee-manager {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.05);
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* 🔄 Loading Screen */
+.dashboard-loading {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+/* 📱 Responsive */
+@media (min-width: 768px) {
+  .dashboard-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .dashboard-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* 🌙 Dark Mode Support */
+body[data-theme='dark'] .dashboard-content {
+  background-color: #1e1e2f;
+  color: #f1f1f1;
+}
+
+body[data-theme='dark'] .role-section,
+body[data-theme='dark'] .dashboard-chart,
+body[data-theme='dark'] .metric-cards,
+body[data-theme='dark'] .shift-manager,
+body[data-theme='dark'] .attendance-tracker,
+body[data-theme='dark'] .payroll-viewer,
+body[data-theme='dark'] .employee-manager {
+  background-color: #29293d;
+  color: #fff;
+  border: 1px solid #444;
+}
+
+body[data-theme='dark'] .role-section ul li {
+  background-color: #333;
+  color: #fff;
+  border-left: 4px solid #80bdff;
+}
+
+body[data-theme='dark'] .role-section h3 {
+  color: #80bdff;
+}
