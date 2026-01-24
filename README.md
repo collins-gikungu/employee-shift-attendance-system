@@ -17,6 +17,7 @@ Built using **Node.js**, **Express**, **PostgreSQL**, and **React**.
 
 * Add, update, view, and manage employees
 * Role-based access control
+* Admin and Staff based dashboards
 
 ### 🕒 Shift Management
 
@@ -125,7 +126,6 @@ JWT_SECRET=your_secret_key
 ## 📸 Screenshots
 
 *(Coming soon)*
-Will be posted Here
 
 ---
 
