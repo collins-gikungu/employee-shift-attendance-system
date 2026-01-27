@@ -4,6 +4,15 @@ A full-stack web application designed to manage employee shifts, attendance trac
 Built using **Node.js**, **Express**, **PostgreSQL**, and **React**.
 
 ---
+# 🔹 Project Overview
+A role-based employee shift and attendance management system that allows staff to clock in/out securely while administrators manage employees, departments, and reports.
+
+# 🔹 Tech Stack
+* Backend: Node.js, Express.js
+* Database: PostgreSQL
+* Auth: JWT (role-based access)
+* Frontend: React 
+* Tools: VS Code, Thunder Client
 
 ## 📌 Features
 
