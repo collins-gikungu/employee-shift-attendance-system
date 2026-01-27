@@ -3,25 +3,32 @@ const pool = require("../config/db");
 // CLOCK IN
 exports.clockIn = async (req, res) => {
   const employeeId = req.user.employee_id;
-  const now = new Date();
-  const today = now.toISOString().split("T")[0];
-  const timestamp = now.toISOString(); // full date + time
 
   try {
+    // Check for an active (not clocked out) attendance today
     const existing = await pool.query(
-      "SELECT * FROM attendance WHERE employee_id = $1 AND date = $2",
-      [employeeId, today]
+      `
+      SELECT * FROM attendance
+      WHERE employee_id = $1
+        AND date = CURRENT_DATE
+        AND clock_out IS NULL
+      `,
+      [employeeId]
     );
 
     if (existing.rows.length > 0) {
-      return res.status(400).json({ message: "Already clocked in today" });
+      return res.status(400).json({
+        message: "You are already clocked in and have not clocked out",
+      });
     }
 
     const result = await pool.query(
-      `INSERT INTO attendance (employee_id, date, clock_in)
-       VALUES ($1, $2, $3)
-       RETURNING *`,
-      [employeeId, today, timestamp]
+      `
+      INSERT INTO attendance (employee_id, date, clock_in)
+      VALUES ($1, CURRENT_DATE, NOW())
+      RETURNING *
+      `,
+      [employeeId]
     );
 
     res.status(201).json(result.rows[0]);
@@ -33,34 +40,39 @@ exports.clockIn = async (req, res) => {
   }
 };
 
+
 // CLOCK OUT
 exports.clockOut = async (req, res) => {
   const employeeId = req.user.employee_id;
-  const now = new Date();
-  const today = now.toISOString().split("T")[0];
-  const timestamp = now.toISOString();
 
   try {
+    // Find active attendance for today
     const existing = await pool.query(
-      "SELECT * FROM attendance WHERE employee_id = $1 AND date = $2",
-      [employeeId, today]
+      `
+      SELECT * FROM attendance
+      WHERE employee_id = $1
+        AND date = CURRENT_DATE
+        AND clock_out IS NULL
+      `,
+      [employeeId]
     );
 
     if (existing.rows.length === 0) {
-      return res.status(400).json({ message: "You must clock in first." });
+      return res.status(400).json({
+        message: "No active clock-in found for today",
+      });
     }
 
-    const record = existing.rows[0];
-
-    if (record.clock_out) {
-      return res.status(400).json({ message: "Already clocked out today." });
-    }
+    const attendanceId = existing.rows[0].attendance_id;
 
     const result = await pool.query(
-      `UPDATE attendance SET clock_out = $1
-       WHERE attendance_id = $2
-       RETURNING *`,
-      [timestamp, record.attendance_id]
+      `
+      UPDATE attendance
+      SET clock_out = NOW()
+      WHERE attendance_id = $1
+      RETURNING *
+      `,
+      [attendanceId]
     );
 
     res.json(result.rows[0]);
