@@ -141,7 +141,12 @@ JWT_SECRET=your_secret_key
 | POST   | /api/attendance/clock-out | Clock out         | ✅       |
 
 ---
+### Attendance Rules
+- Only one active clock-in session allowed per employee
+- Clock-out closes the most recent open session
+- Duplicate attendance entries are prevented at database level
 
+---
 ## 📸 Screenshots
 
 *(Coming soon)*
