@@ -18,6 +18,14 @@ const authenticateToken = (req, res, next) => {
       role: decoded.role,
     };
 
+    router.get(
+  "/preview",
+  authMiddleware,
+  adminOnly,
+  payrollController.getPayrollPreview
+);
+
+
     next();
   });
 };
