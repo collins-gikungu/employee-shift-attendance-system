@@ -142,9 +142,9 @@ JWT_SECRET=your_secret_key
 
 ---
 ### Attendance Rules
-- Only one active clock-in session allowed per employee
-- Clock-out closes the most recent open session
-- Duplicate attendance entries are prevented at database level
+- Employees can only clock in during scheduled shifts
+- Attendance is linked to shifts for payroll accuracy
+- Clock-in is restricted to once per day
 
 ---
 ### Shift Rules
