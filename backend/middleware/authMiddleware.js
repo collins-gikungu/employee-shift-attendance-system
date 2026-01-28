@@ -25,6 +25,13 @@ const authenticateToken = (req, res, next) => {
   payrollController.getPayrollPreview
 );
 
+    router.get(
+  "/metrics",
+  authMiddleware,
+  adminOnly,
+  dashboardController.getAdminMetrics
+);
+
 
     next();
   });
