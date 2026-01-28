@@ -153,6 +153,12 @@ JWT_SECRET=your_secret_key
 - Shifts are soft-deleted for audit history
 
 ---
+### Payroll Engine
+- Calculates worked hours from attendance
+- Automatically detects overtime
+- Payroll preview available to admins
+
+---
 ## 📸 Screenshots
 
 *(Coming soon)*
