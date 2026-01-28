@@ -159,6 +159,13 @@ JWT_SECRET=your_secret_key
 - Payroll preview available to admins
 
 ---
+### Reports & Analytics
+- Admin dashboard metrics
+- Employee attendance reports
+- Department-level workload summaries
+- Overtime tracking insights
+
+---
 ## 📸 Screenshots
 
 *(Coming soon)*
