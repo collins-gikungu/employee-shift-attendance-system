@@ -41,38 +41,33 @@ exports.clockIn = async (req, res) => {
 };
 
 
-// CLOCK OUT
+// CLOCK OUT 
 exports.clockOut = async (req, res) => {
   const employeeId = req.user.employee_id;
+  const timestamp = new Date().toISOString();
 
   try {
-    // Find active attendance for today
     const existing = await pool.query(
-      `
-      SELECT * FROM attendance
-      WHERE employee_id = $1
-        AND date = CURRENT_DATE
-        AND clock_out IS NULL
-      `,
+      `SELECT * FROM attendance
+       WHERE employee_id = $1
+       AND clock_out IS NULL
+       ORDER BY clock_in DESC
+       LIMIT 1`,
       [employeeId]
     );
 
     if (existing.rows.length === 0) {
       return res.status(400).json({
-        message: "No active clock-in found for today",
+        message: "No active clock-in session found",
       });
     }
 
-    const attendanceId = existing.rows[0].attendance_id;
-
     const result = await pool.query(
-      `
-      UPDATE attendance
-      SET clock_out = NOW()
-      WHERE attendance_id = $1
-      RETURNING *
-      `,
-      [attendanceId]
+      `UPDATE attendance
+       SET clock_out = $1
+       WHERE ctid = $2
+       RETURNING *`,
+      [timestamp, existing.rows[0].ctid]
     );
 
     res.json(result.rows[0]);
@@ -83,6 +78,7 @@ exports.clockOut = async (req, res) => {
     });
   }
 };
+
 
 // GET ALL ATTENDANCE (Admin)
 exports.getAllAttendance = async (req, res) => {
