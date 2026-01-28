@@ -147,6 +147,12 @@ JWT_SECRET=your_secret_key
 - Duplicate attendance entries are prevented at database level
 
 ---
+### Shift Rules
+- Employees cannot have overlapping scheduled shifts
+- Cancelled shifts do not block new assignments
+- Shifts are soft-deleted for audit history
+
+---
 ## 📸 Screenshots
 
 *(Coming soon)*
