@@ -107,7 +107,7 @@ ShiftSystem/
 ```bash
 cd backend
 npm install
-npm run dev
+npm start
 ```
 
 ### Frontend Setup
@@ -129,6 +129,16 @@ PORT=5000
 DATABASE_URL=postgresql
 JWT_SECRET=your_secret_key
 ```
+
+---
+
+# 🔹 API Endpoints Table
+| Method | Endpoint                  | Description       | Auth    |
+| ------ | ------------------------- | ----------------- | ------- |
+| POST   | /api/auth/login           | Login user        | ❌       |
+| GET    | /api/employees            | Get all employees | ✅ Admin |
+| POST   | /api/attendance/clock-in  | Clock in          | ✅       |
+| POST   | /api/attendance/clock-out | Clock out         | ✅       |
 
 ---
 
